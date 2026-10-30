@@ -2,7 +2,9 @@
 
 <center>FACULTAD DE INGENIERÍA INDUSTRIAL Y DE SISTEMAS
 
-![alt text](image.png)
+<div align="center">
+  <img src="image.png" alt="alt text" width="50%">
+</div>
 
 <center>SW609U Sistemas de Gestión de Base de Datos
 
@@ -12,8 +14,11 @@
 
 <center>Participantes del Grupo 1:
 <center> - Chavarria Llamacponcca Renzo Moises 
+
 <center> - Chinchayhuara Pantoja Mauricio Mussolini 
+
 <center> - Rojas Sanchez Jose Martin 
+
 <center> - Vera Palacios Alvaro Martin 
 <center>29 de octubre de 2026 
 <center>2026 - II 
