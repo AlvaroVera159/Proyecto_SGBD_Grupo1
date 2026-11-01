@@ -44,7 +44,12 @@ A través de nuestra plataforma, resolvemos problemas críticos del día a día,
 
 - Rojas Sanchez Jose Martin: 
 
-- Vera Palacios Alvaro Martin:   
+- Vera Palacios Alvaro Martin (Código 20234137G): Estudiante de la carrera de Ingeniería de Software en la Universidad Nacional de Ingeniería, con sexto ciclo relativo, experiencia previa en bases de datos relacionales como PostgreSQL, Oracle, MySQL y SQL Server, en lenguajes de programación como Python. Java, C++, C y JavaScript, en frameworks con React y Express.js, con la capacidad de diseñar y estructurar ecosistemas con grandes cantidades de tablas.
+
+<div align="center">
+  <img src="foto_traje.jpg" alt="alt text" width="50%">
+</div>
+
 
 ## 1.2.   Solution profile
 
@@ -60,9 +65,14 @@ Al no contar con un sistema que integre ambas áreas (agricultura y ganadería),
 
 <table border="1" width="100%">
   <tr>
-    <td><b>Problema del Negocio:</b><br>X</td>
+    <td><b>Problema del Negocio:</b><br>Las granjas agropecuarias sufren fugas de capital y pérdida de valor comercial debido a procesos ineficientes y no estandarizados. Al carecer de un software de gestión, el negocio asume sobrecostos constantes por la mala dosificación de insumos, horas-hombre desperdiciadas en la asignación de labores en las parcelas, y una fuerte devaluación de sus animales por la consanguinidad (cruce entre familiares) o mala rotación genética, limitando severamente sus márgenes de ganancia.</td>
     <td rowspan="2"><b>Soluciones Propuestas:</b><br>X</td>
-    <td><b>Resultados del Negocio:</b><br>X</td>
+    <td><b>Resultados del Negocio:</b><br>Mediante la implementación de nuestro software, AgroProyectados espera que las granjas obtengan los siguientes resultados cuantificables:
+    <ul>
+      <li><b>Reducción de sobrecostos operativos:</b> Disminución en la pérdida y desperdicio de insumos agrícolas y veterinarios mediante un control estricto de inventarios vinculados a parcelas y corrales.</li>
+      <li><b>Incremento del valor del ganado:</b> Aumento en los índices de natalidad sana y mejora en las métricas de engorde gracias al monitoreo genético y rotación inteligente de toros, vacas y cuyes.</li>
+      <li><b>Eficiencia operativa unificada:</b> Eliminación del uso de papel y cuadernos, logrando que el productor pueda auditar el rendimiento de sus trabajadores y el estado de sus 2 hectáreas de cultivo en tiempo real desde una sola plataforma.</li>
+    </ul>  </td>
   </tr>
   <tr>
     <td><b>Usuarios:</b><br>X</td>
