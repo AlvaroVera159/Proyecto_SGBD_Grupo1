@@ -40,7 +40,7 @@ A través de nuestra plataforma, resolvemos problemas críticos del día a día,
 
 - Chavarria Llamacponcca Renzo Moises 
 
-- Chinchayhuara Pantoja Mauricio Miguel
+- Chinchayhuara Pantoja Mauricio Miguel (20244112G): Estudiante de la carrera de Ingenieria de Software en la Universidad Nacional de Ingeniería del Sexto Ciclo. Experiencia previa en Base de Datos SQL tales como MYSQL y SQLServer; lenguajes de programación como Python, Java y C++ y la capacidad de analizar casos extensos para un modelamiento de datos con gran cantidad de relaciones y tablas.
 
 - Rojas Sanchez Jose Martin: 
 
