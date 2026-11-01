@@ -14,11 +14,11 @@
 
 <center>Participantes del Grupo 1:</center>
 <center> - Chavarria Llamacponcca Renzo Moises </center>
-
+<br>
 <center> - Chinchayhuara Pantoja Mauricio Miguel </center>
-
+<br>
 <center> - Rojas Sanchez Jose Martin </center>
-
+<br>
 <center> - Vera Palacios Alvaro Martin </center>
 
 <center> 29 de octubre de 2026 </center>
@@ -47,7 +47,7 @@ A través de nuestra plataforma, resolvemos problemas críticos del día a día,
 - Vera Palacios Alvaro Martin (Código 20234137G): Estudiante de la carrera de Ingeniería de Software en la Universidad Nacional de Ingeniería, con sexto ciclo relativo, experiencia previa en bases de datos relacionales como PostgreSQL, Oracle, MySQL y SQL Server, en lenguajes de programación como Python. Java, C++, C y JavaScript, en frameworks con React y Express.js, con la capacidad de diseñar y estructurar ecosistemas con grandes cantidades de tablas.
 
 <div align="center">
-  <img src="foto_traje.jpg" alt="alt text" width="50%">
+  <img src="foto_traje.jpg" alt="alt text" width="30%">
 </div>
 
 
