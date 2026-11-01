@@ -57,6 +57,18 @@ A través de nuestra plataforma, resolvemos problemas críticos del día a día,
 
 ### 1.2.1.    Antecedentes y problemática
 
+### Matriz 5W y 2H
+
+| Pregunta | Respuesta |
+|---|---|
+| **¿Qué? (What)** | Los fundos agropecuarios administran sus operaciones con cuadernos físicos y memoria, generando islas de información. No pueden rastrear el uso de insumos por parcela, asignar trabajadores de forma eficiente ni controlar la genealogía y reproducción del ganado. |
+| **¿Por qué? (Why)** | La falta de digitalización genera "ceguera administrativa": sobrecostos por mala dosificación de insumos, horas-hombre desperdiciadas, consanguinidad en los animales y dificultad para contener enfermedades, lo que limita los márgenes de ganancia. |
+| **¿Quién? (Who)** | Principal: empresarios agropecuarios y criadores que poseen parcelas. Secundario: asociaciones, cooperativas, veterinarios y extensionistas. Internamente: usuarios operativos y administrador del sistema. |
+| **¿Dónde? (Where)** | En fundos y granjas de pequeños y medianos productores (parcelas de cultivo y corrales de vacunos y cuyes), con acceso desde celular o computadora. |
+| **¿Cuándo? (When)** | En la operación diaria y durante todo el ciclo productivo: siembra, uso de insumos, empadre, gestación, engorde, sanidad y venta. |
+| **¿Cómo? (How)** | Con AgriTech, un sistema de base de datos relacional que integra parcelas, lotes, animales, genealogía, sanidad, alimentación, producción y ventas, con roles de acceso, reportes, alertas y estructura multiempresa. |
+| **¿Cuánto? (How much)** | Costo de desarrollo e implementación (por definir), modelo de licencias o suscripción para otros criadores, y ahorro esperado por menor desperdicio de insumos y mayor valor del ganado en las 2 hectáreas de cultivo. |
+
 #### Problemática Central
 
 La problemática central radica en la ausencia de herramientas de software y la total dependencia de registros manuales (cuadernos físicos y memoria visual) en la administración diaria de los fundos agropecuarios. Esta falta de digitalización genera islas de información que impiden tener una visión completa del negocio.
