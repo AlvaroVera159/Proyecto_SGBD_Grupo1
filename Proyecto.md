@@ -58,22 +58,52 @@ Al no contar con un sistema que integre ambas áreas (agricultura y ganadería),
 
 ### 1.2.2.    Propuesta de valor
 
+
 <table border="1" width="100%">
-  <tr>
-    <td><b>Problema del Negocio:</b><br>X</td>
-    <td rowspan="2"><b>Soluciones Propuestas:</b><br>X</td>
-    <td><b>Resultados del Negocio:</b><br>X</td>
-  </tr>
-  <tr>
-    <td><b>Usuarios:</b><br>X</td>
-    <td><b>Resultados y Beneficios del Usuario:</b><br>X</td>
-  </tr>
-  <tr>
-    <td><b>Hipótesis:</b><br>X</td>
-    <td><b>¿Qué es lo primero y más importante a saber?:</b><br>X</td>
-    <td><b>¿Cuál es la menor cantidad de trabajo que necesitamos para aprender algo muy importante?:</b><br>X</td>
-  </tr>
+    <tr>
+        <td>
+            <b>Problema del Negocio:</b><br>
+            X
+        </td>
+        <td rowspan="2">
+            <b>Soluciones Propuestas:</b><br>
+            Implementar <b>AgriTech</b>, un sistema de gestión de base de datos relacional, seguro y escalable, que integre el registro de parcelas, lotes, animales,, genealogía, reproducción, sanidad, alimentación, peso, producción, mortalidad y ventas. La base de datos permitirá relacionar cada animal con su parcela, lote e historial productivo y sanitario, garantizando integridad referencial. Incluirá roles y permisos de acceso, reportes de producción y rentabilidad, alertas sanitarias y reproductivas, respaldo de información y una estructura multiempresa que permita al empresario ofrecer la solución a otros criadores de su rubro
+        </td>
+        <td>
+            <b>Resultados del Negocio:</b><br>
+            X
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Usuarios:</b><br>
+            Empresarios agropecuarios y criadores de animales de ganado que poseen parcelas, y que buscan mejorar el rastreo de sus animales sin abandonar el conocimiento adquirido por experiencia. Usuarios operativos: responsables de la crianza que registran datos diarios. Usuarios técnicos: veterinarios y extensionistas que consultan historiales. Usuario administrador: gestiona usuarios, roles, reportes y licencias del sistema.
+        </td>
+        <td>
+            <b>Resultados y Beneficios del Usuario:</b><br>
+            El empresario podrá conocer el historial reproductivo, sanitario y productivo de cada animal, tomar decisiones basadas en datos y respaldar su método empírico con información organizada. Podrá detectar oportunamente enfermedades, mejorar la alimentación y aumentar la productividad. Además, podrá ofrecer el sistema a otros criadores de su rubro, generando ingresos adicionales y posicionándose como referente en la facilitación de información para la crianza de animales de ganado
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Hipótesis:</b><br>
+            X
+        </td>
+        <td>
+            <b>¿Qué es lo primero y más importante a saber?:</b><br>
+            X
+        </td>
+        <td>
+            <b>¿Cuál es la menor cantidad de trabajo que necesitamos para aprender algo muy importante?:</b><br>
+            X
+        </td>
+    </tr>
 </table>
 
+
 ## 1.3.   Segmentos objetivo 
+
+El segmento objetivo principal está conformado por empresarios agropecuarios y criadores que poseen parcelas, y que actualmente gestionan su producción a partir de experiencia empírica, registros manuales o información dispersa. Estos usuarios se caracterizan por necesitar registros más ordenados sobre reproducción, alimentación, sanidad, peso, mortalidad y producción, así como por visualizar una oportunidad de negocio al poder ofrecer el sistema a otros productores de su rubro.
+
+Como segmento secundario se consideran las asociaciones, cooperativas y otros criadores de cuyes que requieren sistematizar su información y adoptar herramientas digitales para mejorar su producción. También se incluye a técnicos, veterinarios y extensionistas agropecuarios que brindan asesoría y necesitan consultar historiales productivos y sanitarios. Finalmente, el sistema contempla al empresario como futuro proveedor de la solución, ya que podrá comercializar el acceso al sistema a otros criadores interesados en facilitar la información para la crianza de animales de ganado.
 
