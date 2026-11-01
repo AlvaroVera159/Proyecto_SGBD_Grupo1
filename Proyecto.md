@@ -44,7 +44,7 @@ A través de nuestra plataforma, resolvemos problemas críticos del día a día,
 
 - Chinchayhuara Pantoja Mauricio Miguel (20244112G): Estudiante de la carrera de Ingenieria de Software en la Universidad Nacional de Ingeniería del Sexto Ciclo. Experiencia previa en Base de Datos SQL tales como MYSQL y SQLServer; lenguajes de programación como Python, Java y C++ y la capacidad de analizar casos extensos para un modelamiento de datos con gran cantidad de relaciones y tablas.
 
-- Rojas Sanchez Jose Martin: 
+- Rojas Sanchez Jose Martin (20244126H): Esduaitnate de la carrera de Ingeniería de Software, 6to ciclo, enfocado directamente en la creación de sistemas web y movil, con proyectos reales y desplegados en estas tecnologías. Además, cuento con experiencia manejando base de datos en producción, modificando reglas de seguridad y RLS's 
 
 - Vera Palacios Alvaro Martin (Código 20234137G): Estudiante de la carrera de Ingeniería de Software en la Universidad Nacional de Ingeniería, con sexto ciclo relativo, experiencia previa en bases de datos relacionales como PostgreSQL, Oracle, MySQL y SQL Server, en lenguajes de programación como Python. Java, C++, C y JavaScript, en frameworks con React y Express.js, con la capacidad de diseñar y estructurar ecosistemas con grandes cantidades de tablas.
 
@@ -81,7 +81,7 @@ Al no contar con un sistema que integre ambas áreas (agricultura y ganadería),
 <table border="1" width="100%">
   <tr>
     <td><b>Problema del Negocio:</b><br>Las granjas agropecuarias sufren fugas de capital y pérdida de valor comercial debido a procesos ineficientes y no estandarizados. Al carecer de un software de gestión, el negocio asume sobrecostos constantes por la mala dosificación de insumos, horas-hombre desperdiciadas en la asignación de labores en las parcelas, y una fuerte devaluación de sus animales por la consanguinidad (cruce entre familiares) o mala rotación genética, limitando severamente sus márgenes de ganancia.</td>
-    <td rowspan="2"><b>Soluciones Propuestas:</b><br>Implementar <b>AgriTech</b>, un sistema de gestión de base de datos relacional, seguro y escalable, que integre el registro de parcelas, lotes, animales,, genealogía, reproducción, sanidad, alimentación, peso, producción, mortalidad y ventas. La base de datos permitirá relacionar cada animal con su parcela, lote e historial productivo y sanitario, garantizando integridad referencial. Incluirá roles y permisos de acceso, reportes de producción y rentabilidad, alertas sanitarias y reproductivas, respaldo de información y una estructura multiempresa que permita al empresario ofrecer la solución a otros criadores de su rubro</td>
+    <td rowspan="2"><b>Soluciones Propuestas:</b><br>Implementar <b>AgriTech</b>, un sistema de gestión de base de datos relacional, seguro y escalable, que integre el registro de parcelas, lotes, animales, genealogía, reproducción, sanidad, alimentación, peso, producción, mortalidad y ventas. La base de datos permitirá relacionar cada animal con su parcela, lote e historial productivo y sanitario, garantizando integridad referencial. Incluirá roles y permisos de acceso, reportes de producción y rentabilidad, alertas sanitarias y reproductivas, respaldo de información y una estructura multiempresa que permita al empresario ofrecer la solución a otros criadores de su rubro</td>
     <td><b>Resultados del Negocio:</b><br>Mediante la implementación de nuestro software, AgroProyectados espera que las granjas obtengan los siguientes resultados cuantificables:
     <ul>
       <li><b>Reducción de sobrecostos operativos:</b> Disminución en la pérdida y desperdicio de insumos agrícolas y veterinarios mediante un control estricto de inventarios vinculados a parcelas y corrales.</li>
@@ -94,9 +94,29 @@ Al no contar con un sistema que integre ambas áreas (agricultura y ganadería),
     <td><b>Resultados y Beneficios del Usuario:</b><br>El empresario podrá conocer el historial reproductivo, sanitario y productivo de cada animal, tomar decisiones basadas en datos y respaldar su método empírico con información organizada. Podrá detectar oportunamente enfermedades, mejorar la alimentación y aumentar la productividad. Además, podrá ofrecer el sistema a otros criadores de su rubro, generando ingresos adicionales y posicionándose como referente en la facilitación de información para la crianza de animales de ganado</td>
   </tr>
   <tr>
-    <td><b>Hipótesis:</b><br>X</td>
-    <td><b>¿Qué es lo primero y más importante a saber?:</b><br>X</td>
-    <td><b>¿Cuál es la menor cantidad de trabajo que necesitamos para aprender algo muy importante?:</b><br>X</td>
+    <td><b>Hipótesis:</b><br>
+    <ul>
+      <li><b>Hipótesis de Adopción y Eficiencia:</b> Creemos que al proveer a los empresarios y operarios agrícolas una interfaz sencilla para registrar insumos y labores por parcela en lugar de cuadernos físicos, se reducirá el desperdicio de insumos en un 20%. Sabremos que tuvimos éxito cuando el 85% de las labores diarias sean registradas digitalmente durante el primer mes de uso.</li>
+      <li><b>Hipótesis de Control Zootécnico:</b> Creemos que al incorporar un control genealógico con alertas automáticas de consanguinidad para vacunos y cuyes, aumentará la tasa de crías sanas y el valor comercial del ganado. Sabremos que tuvimos éxito cuando los cruces consanguíneos involuntarios se reduzcan a 0% y la supervivencia de crías aumente en un 15%.</li>
+      <li><b>Hipótesis de Escalabilidad y Negocio:</b> Creemos que al estructurar el sistema con capacidades multiempresa y reportes de rentabilidad, los empresarios agropecuarios estarán dispuestos a pagar un modelo de suscripción o licencia y comercializar la solución a otros criadores del rubro. Sabremos que tuvimos éxito cuando al menos 3 granjas piloto decidan contratar el servicio tras el período de evaluación.</li>
+    </ul></td>
+    <td><b>¿Qué es lo primero y más importante a saber?:</b><br>
+    <ul>
+      <li><b>Disposición y facilidad de adopción operativa:</b> Determinar si los trabajadores y operarios de campo (con fuerte arraigo en prácticas empíricas y baja familiaridad digital) realmente utilizarán la plataforma de manera constante y sin fricción para registrar labores diarias, o si el ingreso de datos será percibido como una sobrecarga de trabajo.</li>
+      <li><b>Viabilidad de la información genealógica inicial:</b> Identificar si los criadores poseen suficiente trazabilidad histórica o datos confiables para poblar el registro inicial de parentesco de sus animales de crianza y validar la efectividad de las alertas reproductivas.</li>
+      <li><b>Disposición real de pago y valor percibido:</b> Confirmar si el ahorro operativo generado en insumos y la reducción de pérdidas en animales son lo suficientemente tangibles como para que el productor justifique la inversión en licencias del software.</li>
+    </ul></td>
+    <td><b>¿Cuál es la menor cantidad de trabajo que necesitamos para aprender algo muy importante?:</b><br>
+    <ul>
+      <li><b>Desarrollo de un MVP Core (Prototipo funcional mínimo):</b> Construir una versión ligera y accesible desde celular/computadora centrada únicamente en dos flujos esenciales:
+        <ol>
+          <li>Formulario simplificado para el registro diario de insumos aplicados a una parcela específica.</li>
+          <li>Ficha zootécnica elemental con verificación instantánea de parentesco (evitar consanguinidad) al programar un cruce o empadre.</li>
+        </ol>
+      </li>
+      <li><b>Prueba piloto de campo (2 a 3 semanas):</b> Desplegar este MVP en un entorno controlado (las 2 hectáreas de cultivo y un corral piloto de cuyes o vacunos) con un operario clave y el empresario agropecuario.</li>
+      <li><b>Mecanismos de medición y aprendizaje directo:</b> Evaluar la tasa de registro efectivo frente al cuaderno tradicional, registrar el tiempo invertido por carga de datos y realizar entrevistas cortas in situ para identificar bloqueos de usabilidad antes de invertir recursos en módulos avanzados o multiempresa.</li>
+    </ul></td>
   </tr>
 </table>
 
