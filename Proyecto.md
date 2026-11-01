@@ -1,18 +1,19 @@
 <center>UNIVERSIDAD NACIONAL DE INGENIERÍA</center>
-
+<br>
 <center>FACULTAD DE INGENIERÍA INDUSTRIAL Y DE SISTEMAS</center>
-
+<br>
 <div align="center">
   <img src="image.png" alt="alt text" width="50%">
 </div>
-
+<br>
 <center>SW609U Sistemas de Gestión de Base de Datos</center>
-
+<br>
 <center>Entregable Capítulo 1</center>
-
+<br>
 <center>DOCENTE: Berrocal Navarro Richard Leonardo</center>
-
+<br>
 <center>Participantes del Grupo 1:</center>
+<br>
 <center> - Chavarria Llamacponcca Renzo Moises </center>
 <br>
 <center> - Chinchayhuara Pantoja Mauricio Miguel </center>
@@ -20,8 +21,9 @@
 <center> - Rojas Sanchez Jose Martin </center>
 <br>
 <center> - Vera Palacios Alvaro Martin </center>
-
+<br>
 <center> 29 de octubre de 2026 </center>
+<br>
 <center> 2026 - II </center>
 
 
