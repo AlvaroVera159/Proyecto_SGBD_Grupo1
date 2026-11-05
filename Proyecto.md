@@ -127,3 +127,18 @@ El segmento objetivo principal está conformado por empresarios agropecuarios y 
 
 Como segmento secundario se consideran las asociaciones, cooperativas y otros criadores de cuyes que requieren sistematizar su información y adoptar herramientas digitales para mejorar su producción. También se incluye a técnicos, veterinarios y extensionistas agropecuarios que brindan asesoría y necesitan consultar historiales productivos y sanitarios. Finalmente, el sistema contempla al empresario como futuro proveedor de la solución, ya que podrá comercializar el acceso al sistema a otros criadores interesados en facilitar la información para la crianza de animales de ganado.
 
+# Capítulo II: Recopilación y análisis de requisitos
+
+## 2.1 Entrevistas
+
+### 2.1.1 Diseño de entrevistas
+
+### 2.1.2 Registro de entrevistas
+
+### 2.1.3 Análisis de entrevistas
+
+## 2.2 Requisitos
+
+### 2.2.1. Requisitos Funcionales
+
+### 2.2.2. Requisitos No Funcionales
