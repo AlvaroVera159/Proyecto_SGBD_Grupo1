@@ -141,4 +141,29 @@ Como segmento secundario se consideran las asociaciones, cooperativas y otros cr
 
 ### 2.2.1. Requisitos Funcionales
 
+| Código | Nombre | Descripción |
+| :--- | :--- | :--- |
+| **RF-01** | Gestión Agrícola | El sistema debe permitir el registro y control de parcelas de cultivo.|
+| **RF-02** | Trazabilidad de Insumos | El software debe registrar de manera exacta el uso y dosificación de insumos agrícolas (semillas, fertilizantes) vinculándolos a cada parcela. |
+| **RF-03** | Control Zootécnico | El sistema debe permitir el registro de perfiles individuales o por lotes de animales, rastreando su peso, crecimiento y mortalidad. |
+| **RF-04** | Registro Genealógico | El sistema debe mantener un registro exacto del parentesco (línea de ascendencia y descendencia) de cada animal registrado en la granja. |
+| **RF-05** | Alertas Reproductivas | El sistema debe evaluar el parentesco y generar alertas automáticas al programar empadres para prevenir cruces con consanguinidad. |
+| **RF-06** | Control Sanitario | El sistema debe mantener el historial clínico de los animales, registrando enfermedades diagnosticadas, tratamientos aplicados y vacunas. |
+| **RF-07** | Gestión de Alimentación | El sistema debe permitir el registro y asignación de esquemas de alimentación (raciones y consumo de forraje) para cada animal o lote. |
+| **RF-08** | Generación de Reportes | El sistema debe generar reportes automáticos y cuadros de mando sobre las métricas de producción y la rentabilidad general de la granja. |
+| **RF-09** | Registro de Ventas | El sistema debe contar con un módulo transaccional para registrar las ventas finales de los animales y cultivos. |
+| **RF-10** | Gestión de Accesos | El sistema debe incluir un módulo para la administración de usuarios y roles con permisos específicos (administrador, operarios de campo, veterinarios). |
+| **RF-11** | Módulo Multiempresa | El software debe contar con aislamiento de datos por cuenta (multi-tenant) para que el empresario principal pueda comercializar licencias a otros criadores. |
+
 ### 2.2.2. Requisitos No Funcionales
+
+| Código | Nombre | Descripción |
+| :--- | :--- | :--- |
+| **RNF-01** | Rendimiento | El sistema debe procesar las consultas de los reportes de producción (cruces entre parcelas, animales e insumos) y renderizar la información en pantalla en un tiempo máximo de 1 s egundobajo condiciones de carga normal. |
+| **RNF-02** | Integridad de Datos | Se debe garantizar la coherencia estricta entre animales, parcelas y su historial, sin redundancias. |
+| **RNF-03** | Usabilidad | La interfaz debe ser intuitiva y guiada, permitiendo que operarios de campo sin experiencia tecnológica avanzada registren insumos o tareas. |
+| **RNF-04** | Adaptabilidad | Las vistas del sistema deben renderizarse y funcionar correctamente en los dispositivos disponibles. |
+| **RNF-05** | Seguridad de Acceso | El sistema debe encriptar las credenciales de los usuarios y bloquear el acceso a módulos no autorizados según el rol asignado. |
+| **RNF-06** | Respaldo de Información | El sistema debe ejecutar copias de seguridad (backups) automáticas de manera diaria para salvaguardar todos los registros operativos y comerciales de las granjas. |
+| **RNF-07** | Escalabilidad | La arquitectura backend y de base de datos debe soportar el crecimiento continuo del esquema multiempresa sin que el tiempo de respuesta de las consultas supere los 2 segundos. |
+
