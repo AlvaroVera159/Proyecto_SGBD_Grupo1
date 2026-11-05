@@ -137,6 +137,22 @@ Como segmento secundario se consideran las asociaciones, cooperativas y otros cr
 
 ### 2.1.3 Análisis de entrevistas
 
+A partir de la entrevista realizada al segmento principal (empresarios agropecuarios y criadores), se identificaron patrones claros en relación con las necesidades, dificultades y expectativas frente a la gestión de sus fundos. La entrevista, realizada a Demetrio Rojas, gerente de una granja dedicada a la crianza de vacunos de doble propósito y cuyes con mejoramiento genético, reveló que las personas de este segmento gestionan sus operaciones combinando la agricultura (2 hectáreas de alfalfa en el caso del señor Rojas) con la ganadería, apoyándose en un equipo de trabajo reducido y con tareas calendarizadas.
+
+En primer lugar, se evidenció que la principal dificultad operativa radica en la dependencia de registros manuales. El entrevistado manifestó que los datos sobre nacimientos, pesos, destetes, sexado y mortalidad se anotan en cuadernos y hojas físicas. Esta falta de digitalización genera una "ceguera administrativa", ya que el entrevistado indicó que la toma de decisiones, como cambios de raza o ajustes en la alimentación, se retrasa hasta por 15 o 30 días, tiempo en el que se comparan anotes manuales, lo que muchas veces resulta en pérdidas económicas o fracasos en los lotes de animales.
+
+Asimismo, se identificó una marcada preocupación por el control zootécnico y genético. El entrevistado destacó la necesidad de rastrear eventos veterinarios (desparasitaciones, vitaminas, tratamientos para neumonía o salmonelosis) y, sobre todo, de evitar cruces no adecuados entre líneas o razas. Actualmente, identificar si un problema de natalidad o mortalidad de crías se debe al macho o a las hembras toma hasta un año de prueba y error. Frente a ello, se valoró la necesidad de contar con una herramienta que les permita verificar el parentesco y optimizar la conversión alimenticia en tiempo real.
+
+Por otro lado, se detectaron limitaciones tecnológicas y de acceso a la información. El entrevistado señaló que, aunque existen experiencias internacionales de monitoreo con sensores, en el sector rural peruano la falta de herramientas digitales limita el crecimiento. Se enfatizó la necesidad de un aplicativo que no solo registre datos, sino que también brinde información oportuna sobre el comportamiento del mercado (precios de la carne, fenómenos climáticos) y alertas tempranas ante cambios bruscos de estación, los cuales incrementan la mortalidad en cuyes.
+
+Desde la perspectiva del acceso operativo, se observó que la solución debe ser intuitiva, dado que el personal de campo (asistentes) es quien registrará los datos diarios. El entrevistado subrayó que la plataforma debe adaptarse a la rutina del fundo y permitir la consulta desde dispositivos móviles o computadoras, eliminando la necesidad de estar físicamente presente en los corrales para revisar el avance de la producción.
+
+En cuanto al segmento secundario (asociaciones, cooperativas, criadores de cuyes y técnicos/veterinarios), no se cuenta aún con entrevistas registradas que permitan un sustento estadístico. Sin embargo, a partir de las hipótesis del proyecto, se proyecta que estos usuarios demandarán funcionalidades de centralización de información, historiales clínicos compartidos y herramientas para la comercialización de licencias, lo cual deberá validarse en futuras iteraciones.
+
+Finalmente, se concluye que una solución para el sector agropecuario debe ser accesible, bilingüe o de lenguaje sencillo, adaptable a la baja conectividad y centrada en la trazabilidad en tiempo real. A partir de estos hallazgos, se define el siguiente arquetipo preliminar para el segmento principal: "El empresario agropecuario empírico", un gerente que posee fundos mixtos, trabaja con personal reducido, necesita digitalizar sus cuadernos de campo para evitar la consanguinidad, optimizar la alimentación y tomar decisiones basadas en datos para asegurar la rentabilidad de su negocio.
+
+
+
 ## 2.2 Requisitos
 
 ### 2.2.1. Requisitos Funcionales
