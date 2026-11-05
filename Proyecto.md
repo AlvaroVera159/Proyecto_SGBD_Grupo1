@@ -34,7 +34,7 @@
 
 ### 1.1.1.    Descripción del startup
 
-**AgroProyectados** es una startup agrotecnológica enfocada en el desarrollo de software de gestión integral para granjas y fundos de producción mixta (agrícola y ganadera). Nuestro producto principal es **AgriTech**, un sistema digital diseñado para modernizar y automatizar el control operativo de pequeños y medianos productores. 
+**AgroProyecciones** es una startup agrotecnológica enfocada en el desarrollo de software de gestión integral para granjas y fundos de producción mixta (agrícola y ganadera). Nuestro producto principal es **AgriTech**, un sistema digital diseñado para modernizar y automatizar el control operativo de pequeños y medianos productores. 
 
 A través de nuestra plataforma, resolvemos problemas críticos del día a día, como la asignación de trabajadores a parcelas específicas, la trazabilidad del uso de insumos (semillas, fertilizantes) y el control zootécnico y genético de animales de crianza (vacunos y cuyes). El núcleo de nuestro software se apoya en una arquitectura de datos robusta, permitiendo transformar fundos que operan de manera empírica en negocios eficientes, escalables y respaldados por información exacta.
 
@@ -82,7 +82,7 @@ Al no contar con un sistema que integre ambas áreas (agricultura y ganadería),
   <tr>
     <td><b>Problema del Negocio:</b><br>Las granjas agropecuarias sufren fugas de capital y pérdida de valor comercial debido a procesos ineficientes y no estandarizados. Al carecer de un software de gestión, el negocio asume sobrecostos constantes por la mala dosificación de insumos, horas-hombre desperdiciadas en la asignación de labores en las parcelas, y una fuerte devaluación de sus animales por la consanguinidad (cruce entre familiares) o mala rotación genética, limitando severamente sus márgenes de ganancia.</td>
     <td rowspan="2"><b>Soluciones Propuestas:</b><br>Implementar <b>AgriTech</b>, un sistema de gestión de base de datos relacional, seguro y escalable, que integre el registro de parcelas, lotes, animales, genealogía, reproducción, sanidad, alimentación, peso, producción, mortalidad y ventas. La base de datos permitirá relacionar cada animal con su parcela, lote e historial productivo y sanitario, garantizando integridad referencial. Incluirá roles y permisos de acceso, reportes de producción y rentabilidad, alertas sanitarias y reproductivas, respaldo de información y una estructura multiempresa que permita al empresario ofrecer la solución a otros criadores de su rubro</td>
-    <td><b>Resultados del Negocio:</b><br>Mediante la implementación de nuestro software, AgroProyectados espera que las granjas obtengan los siguientes resultados cuantificables:
+    <td><b>Resultados del Negocio:</b><br>Mediante la implementación de nuestro software, AgroProyecciones espera que las granjas obtengan los siguientes resultados cuantificables:
     <ul>
       <li><b>Reducción de sobrecostos operativos:</b> Disminución en la pérdida y desperdicio de insumos agrícolas y veterinarios mediante un control estricto de inventarios vinculados a parcelas y corrales.</li>
       <li><b>Incremento del valor del ganado:</b> Aumento en los índices de natalidad sana y mejora en las métricas de engorde gracias al monitoreo genético y rotación inteligente de toros, vacas y cuyes.</li>
@@ -133,7 +133,65 @@ Como segmento secundario se consideran las asociaciones, cooperativas y otros cr
 
 ### 2.1.1 Diseño de entrevistas
 
+Para poder validar todo lo hablado en el capítulo I, se ha buscado realizar la entrevista a un dueño o administrador de una granja.
+
+Para ello se ha desarrollado distintos bloques enfocados en distintos temas donde se plantearon las siguientes preguntas:
+
+#### - Bloque 1: Contexto Operativo y Estructura del Negocio
+- ¿Cómo está organizada físicamente la granja actualmente (hectáreas de cultivo, galpones de cuyes, pozas, establos, etc)?
+
+- ¿Qué personal labora en el fundo y cómo se delegan o supervisan las tareas diarias (cuadernos, indicaciones verbales, WhatsApp)?
+
+- ¿Cuáles son los principales cuellos de botella administrativos o pérdidas económicas que experimenta en el día a día?
+
+#### - Bloque 2: Cultivos, Parcelas e Insumos Agrícolas
+- ¿Cómo registran el stock y la aplicación de insumos (semillas, fertilizantes, pesticidas) por cada lote o parcela?
+
+- ¿Existe una relación directa entre las cosechas de forraje y la alimentación del ganado/cuyes, o se maneja como un inventario independiente?
+
+#### - Bloque 3: Crianza de Cuyes y Programa de Mejora Genética (Eje Central)
+- ¿Cómo identifican individualmente o por lote a los reproductores y reproductores élite (aretes, muescas, tatuaje, placas en pozas)?
+
+- ¿Qué líneas manejan (Perú, Andina, Inti, criollos)? ¿Cuentan hoy con historial escrito de padres/abuelos para evitar la consanguinidad?
+
+- ¿Qué datos registran al momento de la parición (tamaño de camada, crías vivas/muertas, peso al destete)?
+
+- ¿Bajo qué parámetros seleccionan a los cuyes destinados a pie de cría (mejora genética) frente a los destinados a beneficio/carne (ganancia diaria de peso, prolificidad, conformación)?
+
+- ¿Cómo controlan las bajas (mortalidad), causas comunes y los tratamientos sanitarios preventivos o curativos?
+
+#### - Bloque 4: Ganado Vacuno
+- ¿Cuál es el propósito del hato vacuno (leche, carne, doble propósito)?
+
+- ¿Qué eventos veterinarios requieren registrar de forma mandatoria (vacunas, desparasitaciones, control mastitis, inseminación/monta natural)?
+
+#### - Bloque 5: Adopción Tecnológica y Requisitos No Funcionales (BD & App)
+- ¿Los trabajadores que registran labores usan smartphones personales o se designará un dispositivo central?
+
+- ¿Qué reporte o resumen le gustaría ver cada mañana para tomar decisiones antes de iniciar la jornada (alertas de empadre, stock bajo, costos de insumos)?
+
+
 ### 2.1.2 Registro de entrevistas
+
+#### 2.1.2.1 Ficha Técnica de la Entrevista
+
+- **Entrevistado:** Dueño / Administrador de la Granja D'Alejos.
+- **Entrevistadores:** Equipo de AgroProyecciones.
+- **Objetivo principal:** Levantar las reglas de negocio, entidades, atributos, flujos operativos y métricas críticas de la granja (ganado vacuno, cuyes, cultivos y mejora genética) para diseñar la base de datos relacional y validar las hipótesis del MVP.
+- **Modalidad:** Virtual con grabación autorizada.
+- **Link de Entrevista:** https://drive.google.com/file/d/1qtcShp3ZaVf1Kd2DCxAVF852t-Jcdkq-/view
+
+![alt text](image-1.png)
+
+#### 2.1.2.2. Estructura y Cronograma de la Sesión
+|Fase|Duración|Objetivo|
+|---|---|---|
+|I. Introducción y Apertura|5 min|Encuadre del proyecto, agradecimiento y solicitud de consentimiento para grabar|
+|II. Contexto General y Estructura del Fundo|10 min|Dimensionamiento de parcelas, corrales y personal.|
+|III. Módulo Agrícola y Manejo de Insumos|10 min|Trazabilidad de siembra, fertilización, forraje y labores.|
+|IV. Módulo Zootécnico: Cuyes y Mejora Genética|15 min|Identificación, líneas genéticas, empadres, consanguinidad y camadas.|
+|V. Módulo Pecuario: Ganado Vacuno|8 min|Control de ganado, sanidad, pesaje y alimentación.|
+|VI. Viabilidad Técnica, Usabilidad y Cierre|12 min|Dispositivos disponibles, conectividad, expectativas y acuerdos de MVP.|
 
 ### 2.1.3 Análisis de entrevistas
 
