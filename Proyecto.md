@@ -258,11 +258,27 @@ En la siguiente tabla, se especifica las entidades identificadas en base a la en
 |Parcela|Entidad que contiene las subdivisiones de tierra de la empresa|
 |Especie_Cultivo|Entidad que contiene el catálogo de lo que se siembra|
 |Ciclo_Siembra|Entidad que vincula Cultivo con Parcela con el rango de fechas esperado|
-|Cosecha| Entidad que almacena el registro del rendimiento final obtenido en el ciclo de siembre|
-|.|.|
+|Cosecha|Entidad que almacena el registro del rendimiento final obtenido en el ciclo de siembre|
+|Especie_Animal|Entidad que cataloga las diferentes especies criadas en la granja (ej. Vacuno, Cuy, Ovino)|
+|Raza|Entidad que clasifica las razas específicas correspondientes a cada especie animal|
+|Corral|Entidad que representa la ubicación física (corrales o pozas) donde se alojan o agrupan los animales|
+|Animal|Entidad central que registra los datos individuales (arete, nacimiento) y las llaves de parentesco (padre y madre) para la genealogía|
+|Lote_Animal|Entidad que agrupa animales menores (como los cuyes) para gestionar su trazabilidad en bloque|
+|Control_Peso|Entidad que almacena el historial de pesaje y crecimiento de un animal o lote en fechas determinadas|
+|Empadre|Entidad que registra el cruce o monta entre un macho y una hembra, calculando la fecha esperada de parto|
+|Parto|Entidad que detalla los resultados de un empadre, registrando el número de crías vivas, muertas y complicaciones|
 |Enfermedad|Entidad que contiene el catálogo de enfermedades comunes|
 |Diagnostico|Entidad que almacena los diagnosticos hechos hacia un animal|
 |Tratamiento_Sanitario|Entidad que almacena el registro de la intervención aplicada a un animal o lote|
 |Racion_Dieta|Entidad que registra las fórmula o combinaciones de alimento preparadas para distintas etapas|
 |Consumo_Alimentacion|Entidad que contiene la cantidad exacta de ración asignada a un animal, lote o corral por día|
+|Categoria_Insumo|Entidad que clasifica los tipos de productos del almacén (ej. Fertilizante, Medicina, Concentrado)|
+|Insumo|Entidad que detalla los productos específicos que la granja tiene registrados en su inventario|
+|Kardex_Inventario|Entidad transaccional que registra las entradas (compras) y salidas (uso o merma) para mantener el stock actualizado|
+|Aplicacion_Insumo|Entidad intermedia que vincula el retiro de un insumo del almacén con su uso exacto en el campo o en un animal|
+|Cliente|Entidad que almacena los datos comerciales de los compradores finales o intermediarios|
+|Venta|Entidad de cabecera que registra los datos generales de la transacción comercial (fecha, total, cliente)|
+|Detalle_Venta|Entidad que desglosa los ítems específicos (animales, cultivos o derivados) incluidos en una venta|
+|Planificacion_Actividad|Entidad que programa las labores futuras (como limpieza o alimentación) asignando fecha, hora, tipo de labor y trabajador|
+
 
