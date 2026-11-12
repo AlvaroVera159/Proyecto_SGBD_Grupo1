@@ -281,4 +281,8 @@ En la siguiente tabla, se especifica las entidades identificadas en base a la en
 |Detalle_Venta|Entidad que desglosa los ítems específicos (animales, cultivos o derivados) incluidos en una venta|
 |Planificacion_Actividad|Entidad que programa las labores futuras (como limpieza o alimentación) asignando fecha, hora, tipo de labor y trabajador|
 
+## 3.2. Atributos
 
+## 3.3. Enfoque Relacional
+
+### 3.3.1. Diagrama Entidad-Relación Lógico
