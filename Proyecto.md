@@ -286,3 +286,45 @@ En la siguiente tabla, se especifica las entidades identificadas en base a la en
 ## 3.3. Enfoque Relacional
 
 ### 3.3.1. Diagrama Entidad-Relación Lógico
+
+
+
+# Capítulo IV: Implementación de base de datos
+
+## 4.1. Sistema de gestión de base de datos
+El Sistema de Gestión de Bases de Datos Relacional (RDBMS) constituye la plataforma tecnológica central para la persistencia transaccional y analítica del sistema AgriTech. Su función es centralizar la gestión operativa de los fundos agropecuarios, reemplazando la dependencia de anotaciones manuales en cuadernos por un repositorio relacional estructurado, íntegro y auditable.
+
+El motor de base de datos asegura el cumplimiento riguroso de las propiedades ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad), garantizando la integridad de datos entre las 32 entidades del dominio identificadas. Administra de forma consistente las transacciones de inventario en `Kardex_Inventario` y `Aplicacion_Insumo`, la asignación de tareas operativas (`Registro_Labor`, `Planificacion_Actividad`), la trazabilidad zootécnica y genealógica en `Animal`, `Empadre` y `Parto`, el control sanitario (`Diagnostico`, `Tratamiento_Sanitario`), y las transacciones comerciales en `Venta` y `Detalle_Venta`. Asimismo, provee el aislamiento necesario para soportar una arquitectura multiempresa (multi-tenant) a través de la entidad `Empresa`.
+
+## 4.1.1. Evaluación y elección del sistema de gestión de base de datos relacional
+
+### A. Criterios de Selección
+Para la selección del motor de base de datos relacional, se establecieron parámetros de evaluación acordes a los requisitos funcionales (RF) y no funcionales (RNF) de AgriTech:
+
+1. **Integridad Referencial y Restricciones Complejas (RNF-02, RF-04, RF-05):** Capacidad de soportar claves foráneas recursivas/autorreferenciales en la tabla `Animal` (para asociar `id_padre` e `id_madre`), permitiendo construir árboles genealógicos y validar mediante restricciones o triggers que no se programen cruces con consanguinidad en `Empadre`.
+2. **Rendimiento en Consultas Complejas y Reportes (RNF-01):** Alta eficiencia del optimizador de consultas para resolver agregaciones y uniones multicapa entre tablas operativas (`Parcela`, `Ciclo_Siembra`, `Cosecha`, `Consumo_Alimentacion`, `Venta`) con tiempos de respuesta en pantalla inferiores a 1 segundo.
+3. **Soporte Multi-tenant y Escalabilidad (RF-11, RNF-07):** Mecanismos para segmentar y aislar de forma estricta los registros de cada cliente a partir de la entidad `Empresa`, garantizando que la arquitectura soporte el crecimiento de múltiples fundos sin degradar tiempos de respuesta más allá de 2 segundos.
+4. **Manejo de Concurrencia y Respaldo (RNF-05, RNF-06):** Motor de concurrencia multiversión (MVCC) para evitar bloqueos entre el registro continuo de datos de campo y la generación de reportes gerenciales, además de herramientas para automatizar copias de seguridad diarias.
+5. **Costos y Compatibilidad con el Entorno de Desarrollo:** Licenciamiento libre de restricciones artificiales de almacenamiento o memoria RAM, compatibilidad multiplataforma y soporte nativo con la extensión ERD Editor en Visual Studio Code.
+
+---
+
+### B. Análisis Comparativo de Alternativas
+
+| Criterio | PostgreSQL | MySQL (Motor InnoDB) | Microsoft SQL Server |
+| :--- | :--- | :--- | :--- |
+| **Licenciamiento y Costos** | Open Source bajo Licencia PostgreSQL (gratuito para desarrollo y explotación comercial, sin límites de almacenamiento ni cómputo). | Open Source bajo licencia GPL v2 (versión Community gratuita; módulos empresariales y soporte comercial licenciados por Oracle). | Propietario. La edición gratuita (SQL Server Express) restringe el tamaño máximo a 10 GB por base de datos y 1.4 GB de memoria RAM. |
+| **Recursividad y Consultas Jerárquicas (Genealogía)** | Excelente soporte y rendimiento en Common Table Expressions recursivas (`WITH RECURSIVE`), índices avanzados (B-Tree, GIN, GiST) y funciones PL/pgSQL para explorar parentescos en `Animal`. | Soporte para CTEs a partir de la versión 8.0, pero con menor flexibilidad y optimización interna en recorridos de grafos y árboles familiares complejos. | Soporte exhaustivo para CTEs recursivas y tipo jerárquico (`hierarchyid`) en T-SQL, condicionado a las restricciones de hardware en su versión Express. |
+| **Arquitectura Multi-tenant** | Soporte nativo de Row-Level Security (RLS) y esquemas independientes (`schemas`), permitiendo aislar datos por `id_empresa` a nivel de motor de forma transparente. | No dispone de RLS nativo en la versión comunitaria; el aislamiento requiere separación en bases de datos distintas o filtrado manual en cláusulas `WHERE`. | Soporte nativo y maduro de Row-Level Security y esquemas, pero sujeto a costos elevados de licenciamiento al superar la versión Express. |
+| **Integridad y Concurrencia** | Motor MVCC altamente probado que evita bloqueos de lectura/escritura; estricto cumplimiento del estándar ANSI SQL. | Motor InnoDB transaccional con bloqueos a nivel de fila y cumplimiento ACID; tradicionalmente con mayor tolerancia y dialecto específico. | Motor transaccional empresarial de alto rendimiento con optimizador maduro, pero con un consumo base de recursos considerablemente más alto. |
+| **Ecosistema y Portabilidad** | Multiplataforma nativo (Linux, macOS, Windows), despliegue eficiente en contenedores Docker, y total compatibilidad con ERD Editor en VS Code, pgAdmin y DBeaver. | Multiplataforma, integración amplia con herramientas de administración tradicionales (MySQL Workbench) y extensiones de desarrollo. | Optimizado principalmente para el ecosistema Windows Server y Azure. Su ejecución en contenedores o Linux demanda mayor cantidad de memoria. |
+
+---
+
+### C. Justificación y Elección del SGBD
+Tras evaluar las alternativas frente a las especificaciones y reglas de negocio de AgriTech, el equipo seleccionó **PostgreSQL** como el Sistema de Gestión de Bases de Datos Relacional para el proyecto, basándose en los siguientes fundamentos técnicos:
+
+1. **Aislamiento Multiempresa Nativo mediante Row-Level Security (RF-11):** PostgreSQL implementa *Row-Level Security* (RLS) directamente en el motor. Esto permite que una única base de datos aloje la información de múltiples clientes vinculados a la entidad `Empresa`, aplicando políticas automáticas donde cada usuario solo accede a los registros que le corresponden sin sobrecargar la lógica de negocio en el backend.
+2. **Capacidad de Consulta Jerárquica y Recursiva (RF-04, RF-05):** El soporte nativo para `WITH RECURSIVE` en PostgreSQL permite rastrear eficientemente el árbol genealógico de la tabla `Animal` (siguiendo las claves foráneas de padre y madre a través de múltiples generaciones). Con ello, se pueden calcular coeficientes de consanguinidad y emitir alertas tempranas antes de confirmar registros en `Empadre`.
+3. **Escalabilidad y Manejo Transaccional sin Restricciones (RNF-06, RNF-07):** A diferencia de SQL Server Express (limitado a 10 GB), PostgreSQL permite el crecimiento continuo de tablas transaccionales de alta frecuencia como `Kardex_Inventario`, `Control_Peso`, `Registro_Labor` y `Detalle_Venta` sin incurrir en licencias comerciales por volumen de datos.
+4. **Compatibilidad con el Flujo de Trabajo:** Se integra de forma directa con el editor Visual Studio Code mediante la extensión **ERD Editor**, lo que facilita la sincronización entre el modelo físico relacional y la generación de scripts DDL/DML, permitiendo además un despliegue ligero mediante contenedores Docker durante la etapa de desarrollo y pruebas.
