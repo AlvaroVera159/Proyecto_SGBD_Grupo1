@@ -665,7 +665,7 @@ Se presentan las relaciones encontradas entre las tablas:
 | Trabajador | 1:M | Usuario | Un trabajador puede tener varios usuarios|
 | Usuario | 1:M | Usuario_Rol | Un usuario puede tener varias asignaciones de rol |
 | Rol | 1:M | Usuario_Rol | Un rol puede estar asignado a varios usuarios |
-| Usuario | M:N | Rol | Un usuario puede tener varios roles y un rol varios usuarios; se resuelve con `Usuario_Rol` |
+| Usuario | M:N | Rol | Un usuario puede tener varios roles y un rol varios usuarios; se resuelve con Usuario_Rol |
 | Empresa | 1:M | Trabajador | Una empresa tiene muchos trabajadores; cada trabajador pertenece a una empresa |
 | Empresa | 1:M | Tipo_Labor | Cada empresa define sus propios tipos de labor|
 | Trabajador | 1:M | Registro_Labor | Un trabajador realiza muchos registros de labor |
@@ -720,14 +720,16 @@ Se presentan las relaciones encontradas entre las tablas:
 | Animal | 1:M | Detalle_Venta | Un animal puede aparecer en líneas de detalle |
 | Lote_Animal | 1:M | Detalle_Venta | Un lote puede aparecer en líneas de detalle |
 | Cosecha | 1:M | Detalle_Venta | Una cosecha puede aparecer en líneas de detalle.|
-| Venta | M:N | Animal | Una venta puede incluir varios animales y un animal puede figurar en varias líneas/ventas; se resuelve con `Detalle_Venta`. |
-| Venta | M:N | Lote_Animal | Una venta puede incluir varios lotes y un lote puede figurar en varias líneas/ventas; se resuelve con `Detalle_Venta`. |
-| Venta | M:N | Cosecha | Una venta puede incluir varias cosechas y una cosecha puede figurar en varias líneas/ventas; se resuelve con `Detalle_Venta`. |
+| Venta | M:N | Animal | Una venta puede incluir varios animales y un animal puede figurar en varias líneas/ventas; se resuelve con Detalle_Venta. |
+| Venta | M:N | Lote_Animal | Una venta puede incluir varios lotes y un lote puede figurar en varias líneas/ventas; se resuelve con Detalle_Venta. |
+| Venta | M:N | Cosecha | Una venta puede incluir varias cosechas y una cosecha puede figurar en varias líneas/ventas; se resuelve con Detalle_Venta. |
 | Empresa | 1:M | Planificacion_Actividad | Una empresa programa muchas actividades |
 | Tipo_Labor | 1:M | Planificacion_Actividad | Un tipo de labor se usa en muchas planificaciones |
 | Trabajador | 1:M | Planificacion_Actividad | Un trabajador tiene muchas actividades programadas |
 
 ### 3.3.1. Diagrama Entidad-Relación Lógico
+
+![alt text](image-2.png)
 
 ---
 
