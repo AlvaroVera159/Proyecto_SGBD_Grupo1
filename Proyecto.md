@@ -286,20 +286,20 @@ En la siguiente tabla, se especifica las entidades identificadas en base a la en
 Los atributos de las entidades identificadas son:
 
 ### Tabla Empresa
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_empresa` | Identificador único de la empresa o granja | PRIMARY KEY |
-| `ruc` | RUC de la empresa o fundo | VARCHAR(11) |
-| `nombre` | Nombre o razón social de la empresa/granja | VARCHAR(150) |
-| `direccion` | Dirección fiscal o ubicación de la granja | VARCHAR(200) |
-| `estado` | Indica si la empresa está activa o inactiva | BOOLEAN |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_empresa` | Identificador único de la empresa o granja | INT | PRIMARY KEY |
+| `ruc` | RUC de la empresa o fundo | VARCHAR(11) ||
+| `nombre` | Nombre o razón social de la empresa/granja | VARCHAR(150) ||
+| `direccion` | Dirección fiscal o ubicación de la granja | VARCHAR(200) ||
+| `estado` | Indica si la empresa está activa o inactiva | BOOLEAN ||
 
 ### Tabla Usuario
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_usuario` | Identificador único del usuario | PRIMARY KEY |
-| `id_empresa` | Empresa o granja a la que pertenece el usuario | FOREIGN KEY |
-| `id_trabajador`| Identificador único del trabajador que se le crea un usuario|FOREIGN KEY|
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_usuario` | Identificador único del usuario |INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja a la que pertenece el usuario | INT |FOREIGN KEY |
+| `id_trabajador`| Identificador único del trabajador que se le crea un usuario|INT |FOREIGN KEY|
 | `email` | Correo electrónico usado como credencial de acceso| VARCHAR(150) |
 | `contrasena_hash` | Contraseña encriptada o hash de la contraseña | VARCHAR(255) |
 | `nombre_usuario` | Nombre visible del usuario dentro del sistema | VARCHAR(100) |
@@ -308,26 +308,26 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si el usuario está activo o bloqueado | BOOLEAN |
 
 ### Tabla Rol
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_rol` | Identificador único del rol | PRIMARY KEY|
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_rol` | Identificador único del rol | INT |PRIMARY KEY|
 | `nombre_rol` | Nombre del rol: Administrador, Operario, Veterinario, etc. | VARCHAR(50)|
 | `descripcion` | Descripción de las funciones o permisos del rol | TEXT |
 | `estado` | Indica si el rol está activo o inactivo | BOOLEAN |
 
 ### Tabla Usuario_Rol
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_usuario` | Usuario al que se le asigna el rol. Parte de la clave primaria compuesta | FOREIGN KEY |
-| `id_rol` | Rol asignado al usuario. Parte de la clave primaria compuesta | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_usuario` | Usuario al que se le asigna el rol. Parte de la clave primaria compuesta | INT |FOREIGN KEY |
+| `id_rol` | Rol asignado al usuario. Parte de la clave primaria compuesta | INT |FOREIGN KEY |
 | `fecha_asignacion` | Fecha y hora en que se asignó el rol al usuario | TIMESTAMP |
 | `estado` | Indica si la asignación del rol está vigente | BOOLEAN |
 
 ### Tabla Trabajador
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_trabajador` | Identificador único del trabajador | PRIMARY KEY |
-| `id_empresa` | Empresa o granja a la que pertenece el trabajador | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_trabajador` | Identificador único del trabajador | INT |PRIMARY KEY |
+| `id_empresa` | Empresa o granja a la que pertenece el trabajador | INT |FOREIGN KEY |
 | `dni` | Documento nacional de identidad del trabajado | CHAR(8)|
 | `nombres` | Nombres del trabajador | VARCHAR(100) |
 | `apellidos` | Apellidos del trabajador | VARCHAR(100) |
@@ -339,20 +339,20 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si el trabajador está activo o inactivo | BOOLEAN |
 
 ### Tabla Tipo_Labor
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_tipo_labor` | Identificador único del tipo de labor | PRIMARY KEY |
-| `id_empresa`| Identificador de empresa para que la lista de labores sea diferente para cada una | FOREIGN KEY|
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_tipo_labor` | Identificador único del tipo de labor |INT | PRIMARY KEY |
+| `id_empresa`| Identificador de empresa para que la lista de labores sea diferente para cada una | INT |FOREIGN KEY|
 | `nombre_labor` | Nombre de la labor: Riego, Desparasitación, Siembra, Cosecha, etc. | VARCHAR(100) |
 | `descripcion` | Descripción detallada de la labor | TEXT |
 | `estado` | Indica si el tipo de labor está activo o inactivo | BOOLEAN |
 
 ### Tabla Registro_Labor
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_registro_labor` | Identificador único del registro de labor | PRIMARY KEY |
-| `id_trabajador` | Trabajador que realizó la labor | FOREIGN KEY |
-| `id_tipo_labor` | Tipo de labor realizada | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_registro_labor` | Identificador único del registro de labor |INT | PRIMARY KEY |
+| `id_trabajador` | Trabajador que realizó la labor | INT |FOREIGN KEY |
+| `id_tipo_labor` | Tipo de labor realizada |INT | FOREIGN KEY |
 | `fecha_labor` | Fecha en que se realizó la labor | DATE |
 | `horas_invertidas` | Cantidad de horas invertidas en la labor | DECIMAL(5,2) |
 | `observaciones` | Comentarios adicionales sobre la labor realizada | TEXT |
@@ -360,10 +360,10 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si el registro está vigente o anulado | BOOLEAN |
 
 ### Tabla Parcela
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_parcela` | Identificador único de la parcela | PRIMARY KEY |
-| `id_empresa` | Empresa o granja a la que pertenece la parcela | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_parcela` | Identificador único de la parcela |INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja a la que pertenece la parcela | INT |FOREIGN KEY |
 | `nombre_parcela` | Nombre o código de la parcela, por ejemplo: "Hectárea 1", "Hectárea 2" | VARCHAR(100) |
 | `tamano_hectareas` | Tamaño de la parcela expresado en hectáreas | DECIMAL(10,2) |
 | `ubicacion` | Ubicación o referencia física de la parcela dentro del fundo | VARCHAR(200) |
@@ -372,9 +372,9 @@ Los atributos de las entidades identificadas son:
 | `observaciones` | Comentarios adicionales sobre la parcela | TEXT |
 
 ### Tabla Especie_Cultivo
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_especie_cultivo` | Identificador único de la especie o tipo de cultivo | PRIMARY KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_especie_cultivo` | Identificador único de la especie o tipo de cultivo | INT |PRIMARY KEY |
 | `nombre_cultivo` | Nombre del cultivo: Maíz chala, Alfalfa, etc. | VARCHAR(100) |
 | `descripcion` | Descripción del cultivo y sus características | TEXT |
 | `tipo_cultivo` | Clasificación del cultivo: forraje, grano, hortaliza, etc. | VARCHAR(50) |
@@ -382,11 +382,11 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si el cultivo está activo en el catálogo | BOOLEAN |
 
 ### Tabla Ciclo_Siembra
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_ciclo_siembra` | Identificador único del ciclo de siembra | PRIMARY KEY |
-| `id_parcela` | Parcela donde se realiza la siembra | FOREIGN KEY|
-| `id_especie_cultivo` | Cultivo sembrado en la parcela |FOREIGN KEY|
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_ciclo_siembra` | Identificador único del ciclo de siembra |INT | PRIMARY KEY |
+| `id_parcela` | Parcela donde se realiza la siembra |INT | FOREIGN KEY|
+| `id_especie_cultivo` | Cultivo sembrado en la parcela |INT |FOREIGN KEY|
 | `fecha_inicio` | Fecha de inicio de la siembra | DATE |
 | `fecha_fin_esperada` | Fecha estimada de fin del ciclo de siembra | DATE |
 | `fecha_fin_real` | Fecha real en que finalizó el ciclo, si ya concluyó | DATE |
@@ -395,10 +395,10 @@ Los atributos de las entidades identificadas son:
 | `observaciones` | Comentarios adicionales sobre el ciclo de siembra | TEXT |
 
 ### Tabla Cosecha
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_cosecha` | Identificador único de la cosecha | PRIMARY KEY |
-| `id_ciclo_siembra` | Ciclo de siembra del que se obtiene la cosecha | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_cosecha` | Identificador único de la cosecha | INT |PRIMARY KEY |
+| `id_ciclo_siembra` | Ciclo de siembra del que se obtiene la cosecha | INT |FOREIGN KEY |
 | `fecha_cosecha` | Fecha en que se realizó la cosecha | DATE |
 | `cantidad_obtenida` | Cantidad total obtenida en la cosecha | DECIMAL(12,2) |
 | `unidad_medida` | Unidad de medida del rendimiento: kg, toneladas, etc. | VARCHAR(20) |
@@ -407,10 +407,10 @@ Los atributos de las entidades identificadas son:
 | `fecha_registro` | Fecha y hora en que se registró la cosecha en el sistema | TIMESTAMP |
 
 ### Tabla Enfermedad
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_enfermedad` | Identificador único de la enfermedad | PRIMARY KEY |
-| `id_especie_animal` | Especie animal afectada por la enfermedad | FOREIGN KEY|
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_enfermedad` | Identificador único de la enfermedad | INT |PRIMARY KEY |
+| `id_especie_animal` | Especie animal afectada por la enfermedad | INT |FOREIGN KEY|
 | `nombre_enfermedad` | Nombre de la enfermedad: Neumonía, Salmonelosis, etc. | VARCHAR(100) |
 | `descripcion` | Descripción de la enfermedad y sus características | TEXT |
 | `tipo_enfermedad` | Clasificación: viral, bacteriana, parasitaria, metabólica, etc. | VARCHAR(50) |
@@ -419,26 +419,26 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si la enfermedad está activa en el catálogo | BOOLEAN |
 
 ### Tabla Diagnostico
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_diagnostico` | Identificador único del diagnóstico | PRIMARY KEY |
-| `id_animal` | Animal al que se le realiza el diagnóstico | FOREIGN KEY |
-| `id_enfermedad` | Enfermedad detectada en el animal | FOREIGN KEY  |
-| `id_trabajador` | Trabajador responsable del diagnóstico | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_diagnostico` | Identificador único del diagnóstico | INT |PRIMARY KEY |
+| `id_animal` | Animal al que se le realiza el diagnóstico | INT |FOREIGN KEY |
+| `id_enfermedad` | Enfermedad detectada en el animal | INT |FOREIGN KEY  |
+| `id_trabajador` | Trabajador responsable del diagnóstico | INT |FOREIGN KEY |
 | `fecha_diagnostico` | Fecha y hora en que se realizó el diagnóstico | TIMESTAMP |
 | `resultado` | Resultado del diagnóstico: positivo, negativo, sospechoso | VARCHAR(20) |
 | `observaciones` | Comentarios adicionales del diagnóstico | TEXT |
 | `estado` | Indica si el diagnóstico está vigente o anulado | BOOLEAN |
 
 ### Tabla Tratamiento_Sanitario
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_tratamiento` | Identificador único del tratamiento sanitario | PRIMARY KEY |
-| `id_diagnostico` | Diagnóstico asociado al tratamiento, si corresponde | FOREIGN KEY  |
-| `id_animal` | Animal al que se le aplica el tratamiento (nulo si es a un lote) | FOREIGN KEY |
-| `id_lote_animal` | Lote al que se le aplica el tratamiento (nulo si es a un animal) | FOREIGN KEY |
-| `id_enfermedad` | Enfermedad que se está tratando o previniendo | FOREIGN KEY |
-| `id_trabajador` | Trabajador responsable de la aplicación | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_tratamiento` | Identificador único del tratamiento sanitario |INT | PRIMARY KEY |
+| `id_diagnostico` | Diagnóstico asociado al tratamiento, si corresponde |INT | FOREIGN KEY  |
+| `id_animal` | Animal al que se le aplica el tratamiento (nulo si es a un lote) |INT | FOREIGN KEY |
+| `id_lote_animal` | Lote al que se le aplica el tratamiento (nulo si es a un animal) |INT | FOREIGN KEY |
+| `id_enfermedad` | Enfermedad que se está tratando o previniendo | INT |FOREIGN KEY |
+| `id_trabajador` | Trabajador responsable de la aplicación | INT |FOREIGN KEY |
 | `tipo_tratamiento` | Tipo de intervención: vacunación, curación, desparasitación, etc. | VARCHAR(50) |
 | `descripcion` | Descripción de la intervención aplicada | TEXT |
 | `medicamento_aplicado` | Nombre o referencia del medicamento utilizado | VARCHAR(150) |
@@ -448,10 +448,10 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si el tratamiento está vigente o anulado | BOOLEAN |
 
 ### Tabla Racion_Dieta
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_racion` | Identificador único de la ración o dieta | PRIMARY KEY |
-| `id_especie_animal` | Especie animal a la que está destinada la ración | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_racion` | Identificador único de la ración o dieta |INT | PRIMARY KEY |
+| `id_especie_animal` | Especie animal a la que está destinada la ración | INT |FOREIGN KEY |
 | `nombre_racion` | Nombre de la ración: "Engorde", "Gestación", "Crecimiento", etc. | VARCHAR(100) |
 | `descripcion` | Descripción de la fórmula o combinación de alimento | TEXT |
 | `etapa_destino` | Etapa productiva a la que está destinada: engorde, gestación, lactancia, etc. | VARCHAR(50) |
@@ -460,13 +460,13 @@ Los atributos de las entidades identificadas son:
 | `estado` | Indica si la ración está activa o inactiva | BOOLEAN |
 
 ### Tabla Consumo_Alimentacion
-| Atributo | Descripción | Tipo de dato |
-|---|---|---|
-| `id_consumo` | Identificador único del registro de consumo | PRIMARY KEY |
-| `id_racion` | Ración o dieta asignada | FOREIGN KEY|
-| `id_animal` | Animal que consume la ración (nulo si es por lote o corral) | FOREIGN KEY |
-| `id_lote_animal` | Lote que consume la ración (nulo si es por animal o galpón) | FOREIGN KEY |
-| `id_galpon` | Galpón o corral donde se asigna la ración (nulo si es por animal o lote) | FOREIGN KEY |
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_consumo` | Identificador único del registro de consumo |INT | PRIMARY KEY |
+| `id_racion` | Ración o dieta asignada |INT | FOREIGN KEY|
+| `id_animal` | Animal que consume la ración (nulo si es por lote o corral) |INT | FOREIGN KEY |
+| `id_lote_animal` | Lote que consume la ración (nulo si es por animal o galpón) |INT | FOREIGN KEY |
+| `id_galpon` | Galpón o corral donde se asigna la ración (nulo si es por animal o lote) |INT | FOREIGN KEY |
 | `fecha_consumo` | Fecha en que se asigna o registra el consumo | DATE |
 | `cantidad_asignada` | Cantidad de ración asignada | DECIMAL(10,2) |
 | `unidad_medida` | Unidad de medida de la cantidad asignada: kg, g, etc. | VARCHAR(20) |
