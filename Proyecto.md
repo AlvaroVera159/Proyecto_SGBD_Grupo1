@@ -241,3 +241,28 @@ Finalmente, se concluye que una solución para el sector agropecuario debe ser a
 | **RNF-06** | Respaldo de Información | El sistema debe ejecutar copias de seguridad (backups) automáticas de manera diaria para salvaguardar todos los registros operativos y comerciales de las granjas. |
 | **RNF-07** | Escalabilidad | La arquitectura backend y de base de datos debe soportar el crecimiento continuo del esquema multiempresa sin que el tiempo de respuesta de las consultas supere los 2 segundos. |
 
+# Capítulo III: DIseño de Base de Datos
+
+## 3.1. Entidades
+En la siguiente tabla, se especifica las entidades identificadas en base a la entrevista presentada:
+
+|Entidad|Descripción|
+|---|---|
+|Empresa|Entidad que almacena los datos de cada granja o empresa cliente|
+|Usuario|Entidad que identifica las credenciales de acceso|
+|Rol|Entidad que representa los niveles de acceso|
+|Usuario_Rol|Entidad que designa uno o más roles a un usuario|
+|Trabajador|Entidad que almacena los datos personales del personal de campo de cada empresa|
+|Tipo_Labor|Entidad que contiene el catálogo de tareas que se pueden realizar en la empresa|
+|Registro_Labor|Entidad que almacena el historial sobre qué trabajador hizo qué labor, en qué fecha y cuántas horas invirtió|
+|Parcela|Entidad que contiene las subdivisiones de tierra de la empresa|
+|Especie_Cultivo|Entidad que contiene el catálogo de lo que se siembra|
+|Ciclo_Siembra|Entidad que vincula Cultivo con Parcela con el rango de fechas esperado|
+|Cosecha| Entidad que almacena el registro del rendimiento final obtenido en el ciclo de siembre|
+|.|.|
+|Enfermedad|Entidad que contiene el catálogo de enfermedades comunes|
+|Diagnostico|Entidad que almacena los diagnosticos hechos hacia un animal|
+|Tratamiento_Sanitario|Entidad que almacena el registro de la intervención aplicada a un animal o lote|
+|Racion_Dieta|Entidad que registra las fórmula o combinaciones de alimento preparadas para distintas etapas|
+|Consumo_Alimentacion|Entidad que contiene la cantidad exacta de ración asignada a un animal, lote o corral por día|
+
