@@ -406,6 +406,97 @@ Los atributos de las entidades identificadas son:
 | `observaciones` | Comentarios adicionales sobre la cosecha | TEXT |
 | `fecha_registro` | Fecha y hora en que se registró la cosecha en el sistema | TIMESTAMP |
 
+### Tabla Especie_Animal
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_especie_animal` | Identificador único de la especie | INT | PRIMARY KEY |
+| `nombre_especie` | Nombre de la especie: Vacuno, Cuy, Ovino, etc. | VARCHAR(100) | |
+| `descripcion` | Descripción general de la especie | TEXT | |
+| `estado` | Indica si la especie está activa en el catálogo | BOOLEAN | |
+
+### Tabla Raza
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_raza` | Identificador único de la raza | INT | PRIMARY KEY |
+| `id_especie_animal` | Especie a la que pertenece la raza | INT | FOREIGN KEY |
+| `nombre_raza` | Nombre de la raza: Holstein, Andina, etc. | VARCHAR(100) | |
+| `descripcion` | Características fenotípicas o propósito de la raza | TEXT | |
+| `estado` | Indica si la raza está activa en el catálogo | BOOLEAN | |
+
+### Tabla Corral
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_corral` | Identificador único del corral, galpón o poza | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja a la que pertenece el corral | INT | FOREIGN KEY |
+| `nombre_corral` | Código o nombre identificador del corral | VARCHAR(100) | |
+| `capacidad_maxima` | Número máximo de animales que puede albergar | INT | |
+| `ubicacion` | Ubicación física dentro del fundo | VARCHAR(200) | |
+| `estado` | Indica si el corral está en uso, en mantenimiento o inactivo | VARCHAR(50) | |
+
+### Tabla Animal
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_animal` | Identificador único interno del animal | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja propietaria del animal | INT | FOREIGN KEY |
+| `id_raza` | Raza del animal | INT | FOREIGN KEY |
+| `id_corral` | Corral o ubicación actual del animal | INT | FOREIGN KEY |
+| `id_padre` | Identificador del padre (Clave foránea recursiva a Animal) | INT | FOREIGN KEY |
+| `id_madre` | Identificador de la madre (Clave foránea recursiva a Animal) | INT | FOREIGN KEY |
+| `codigo_arete` | Código físico visible en el animal (arete, tatuaje, muesca) | VARCHAR(50) | UNIQUE |
+| `sexo` | Sexo del animal (M/F) | CHAR(1) | |
+| `fecha_nacimiento` | Fecha en que nació el animal | DATE | |
+| `proposito` | Fin zootécnico: Carne, Leche, Pie de cría (reproducción) | VARCHAR(50) | |
+| `estado_vital` | Estado actual: Vivo, Muerto, Vendido | VARCHAR(50) | |
+
+### Tabla Lote_Animal
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_lote_animal` | Identificador único del lote | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja propietaria del lote | INT | FOREIGN KEY |
+| `id_raza` | Raza predominante del lote | INT | FOREIGN KEY |
+| `id_corral` | Corral o poza donde se ubica el lote | INT | FOREIGN KEY |
+| `codigo_lote` | Nombre o código de referencia del lote | VARCHAR(100) | |
+| `fecha_creacion` | Fecha en que se agrupó el lote | DATE | |
+| `cantidad_inicial` | Número de animales al crear el lote | INT | |
+| `cantidad_actual` | Número de animales vivos en el lote en la actualidad | INT | |
+| `proposito` | Fin zootécnico del lote (ej. Engorde) | VARCHAR(50) | |
+| `estado` | Indica si el lote está activo o cerrado (vendido/beneficiado) | BOOLEAN | |
+
+### Tabla Control_Peso
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_control_peso` | Identificador único del registro de pesaje | INT | PRIMARY KEY |
+| `id_animal` | Animal pesado (nulo si el pesaje es por lote) | INT | FOREIGN KEY |
+| `id_lote_animal` | Lote pesado (nulo si el pesaje es individual) | INT | FOREIGN KEY |
+| `fecha_pesaje` | Fecha en que se tomó el peso | DATE | |
+| `peso_registrado` | Peso registrado en balanza | DECIMAL(10,2) | |
+| `unidad_medida` | Unidad del peso (Kg, gr) | VARCHAR(20) | |
+| `observaciones` | Comentarios sobre el estado del animal/lote al pesar | TEXT | |
+
+### Tabla Empadre
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_empadre` | Identificador único del registro de cruce | INT | PRIMARY KEY |
+| `id_padre` | Animal macho utilizado como reproductor | INT | FOREIGN KEY |
+| `id_madre` | Animal hembra empadrada | INT | FOREIGN KEY |
+| `id_trabajador` | Empleado responsable de supervisar el cruce | INT | FOREIGN KEY |
+| `fecha_empadre` | Fecha en que ocurrió la monta o inseminación | DATE | |
+| `tipo_empadre` | Monta natural, Inseminación artificial, etc. | VARCHAR(50) | |
+| `fecha_parto_esperada` | Fecha calculada para el nacimiento | DATE | |
+| `estado_gestacion` | Confirmada, Fallida, Pendiente de confirmación | VARCHAR(50) | |
+
+### Tabla Parto
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_parto` | Identificador único del evento de parto | INT | PRIMARY KEY |
+| `id_empadre` | Registro del cruce que originó este parto | INT | FOREIGN KEY |
+| `fecha_parto_real` | Fecha exacta en que ocurrió el nacimiento | DATE | |
+| `crias_vivas` | Cantidad de crías que nacieron vivas | INT | |
+| `crias_muertas` | Cantidad de crías que nacieron muertas | INT | |
+| `peso_camada_total` | Peso total de las crías al nacer | DECIMAL(10,2) | |
+| `complicaciones` | Descripción de problemas durante el parto (distocia, retención) | TEXT | |
+| `estado` | Indica si el registro es válido | BOOLEAN | |
+
 ### Tabla Enfermedad
 | Atributo | Descripción | Tipo de dato | Clave |
 |---|---|---|---|
@@ -473,6 +564,97 @@ Los atributos de las entidades identificadas son:
 | `observaciones` | Comentarios adicionales del consumo | TEXT |
 | `fecha_registro` | Fecha y hora en que se registró el consumo en el sistema | TIMESTAMP |
 
+### Tabla Categoria_Insumo
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_categoria_insumo` | Identificador único de la categoría | INT | PRIMARY KEY |
+| `nombre_categoria` | Fertilizante, Medicina, Semilla, Concentrado | VARCHAR(100) | |
+| `descripcion` | Descripción del tipo de productos que agrupa | TEXT | |
+| `estado` | Indica si la categoría está activa | BOOLEAN | |
+
+### Tabla Insumo
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_insumo` | Identificador único del producto en almacén | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja dueña del inventario | INT | FOREIGN KEY |
+| `id_categoria_insumo` | Categoría a la que pertenece el insumo | INT | FOREIGN KEY |
+| `nombre_insumo` | Nombre comercial o técnico del producto | VARCHAR(150) | |
+| `unidad_medida` | Litros, Kilogramos, Sacos, Unidades, etc. | VARCHAR(50) | |
+| `stock_minimo` | Cantidad mínima para lanzar alerta de reposición | DECIMAL(10,2) | |
+| `estado` | Indica si el producto sigue en uso en la granja | BOOLEAN | |
+
+### Tabla Kardex_Inventario
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_kardex` | Identificador único de la transacción de inventario | INT | PRIMARY KEY |
+| `id_insumo` | Producto cuyo stock se está modificando | INT | FOREIGN KEY |
+| `id_trabajador` | Empleado que registra o autoriza el movimiento | INT | FOREIGN KEY |
+| `tipo_movimiento` | ENTRADA (Compra), SALIDA (Uso), MERMA (Pérdida) | VARCHAR(20) | |
+| `cantidad` | Cantidad sumada o restada al stock | DECIMAL(10,2) | |
+| `fecha_movimiento` | Fecha y hora de la transacción | TIMESTAMP | |
+| `costo_unitario` | Precio por unidad al momento de la entrada (para costeo) | DECIMAL(10,2) | |
+| `observaciones` | Motivo de la salida o número de factura de entrada | TEXT | |
+
+### Tabla Aplicacion_Insumo
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_aplicacion_insumo` | Identificador único del evento de uso | INT | PRIMARY KEY |
+| `id_kardex` | Movimiento de salida del inventario asociado | INT | FOREIGN KEY |
+| `id_ciclo_siembra` | Ciclo agrícola donde se aplicó (nulo si fue uso veterinario) | INT | FOREIGN KEY |
+| `id_tratamiento` | Intervención sanitaria donde se aplicó (nulo si fue uso agrícola) | INT | FOREIGN KEY |
+| `id_trabajador` | Persona que físicamente aplicó el producto | INT | FOREIGN KEY |
+| `dosis_aplicada` | Cantidad exacta utilizada en el campo o animal | DECIMAL(10,2) | |
+| `fecha_aplicacion` | Fecha exacta en que se usó el producto | DATE | |
+| `observaciones` | Detalles sobre el método de aplicación o clima | TEXT | |
+
+### Tabla Cliente
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_cliente` | Identificador único del comprador | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja que registra a su cliente | INT | FOREIGN KEY |
+| `tipo_documento` | DNI, RUC, Pasaporte | VARCHAR(20) | |
+| `numero_documento` | Número de identificación del cliente | VARCHAR(20) | UNIQUE |
+| `nombre_razon_social` | Nombres y apellidos o razón social de la empresa compradora | VARCHAR(150) | |
+| `telefono` | Número de contacto | VARCHAR(20) | |
+| `direccion` | Dirección fiscal o de entrega | VARCHAR(200) | |
+| `estado` | Indica si es un cliente activo o bloqueado | BOOLEAN | |
+
+### Tabla Venta
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_venta` | Identificador único de la transacción comercial | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja que realiza la venta | INT | FOREIGN KEY |
+| `id_cliente` | Comprador registrado | INT | FOREIGN KEY |
+| `id_usuario` | Usuario del sistema que registró la venta | INT | FOREIGN KEY |
+| `fecha_venta` | Fecha y hora de emisión del comprobante | TIMESTAMP | |
+| `tipo_comprobante` | Boleta, Factura, Recibo Interno | VARCHAR(50) | |
+| `numero_comprobante` | Serie y correlativo del documento | VARCHAR(50) | |
+| `monto_total` | Suma total a cobrar por la venta | DECIMAL(12,2) | |
+| `estado` | Pagado, Pendiente, Anulado | VARCHAR(50) | |
+
+### Tabla Detalle_Venta
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_detalle_venta` | Identificador único de la línea de venta | INT | PRIMARY KEY |
+| `id_venta` | Transacción de cabecera a la que pertenece | INT | FOREIGN KEY |
+| `id_animal` | Animal específico vendido (nulo si es cosecha o lote) | INT | FOREIGN KEY |
+| `id_lote_animal` | Lote vendido (nulo si es animal individual o cosecha) | INT | FOREIGN KEY |
+| `id_cosecha` | Cultivo/Forraje vendido (nulo si son animales) | INT | FOREIGN KEY |
+| `cantidad` | Unidades o kilos vendidos del ítem | DECIMAL(10,2) | |
+| `precio_unitario` | Precio cobrado por cada unidad/kilo | DECIMAL(12,2) | |
+| `subtotal` | Resultado de cantidad multiplicada por precio unitario | DECIMAL(12,2) | |
+
+### Tabla Planificacion_Actividad
+| Atributo | Descripción | Tipo de dato | Clave |
+|---|---|---|---|
+| `id_planificacion` | Identificador único de la tarea programada | INT | PRIMARY KEY |
+| `id_empresa` | Empresa o granja donde se realizará la labor | INT | FOREIGN KEY |
+| `id_tipo_labor` | Labor específica a ejecutar (Riego, Alimentación, Limpieza) | INT | FOREIGN KEY |
+| `id_trabajador` | Empleado designado para cumplir la labor | INT | FOREIGN KEY |
+| `fecha_programada` | Día en el que debe realizarse la labor | DATE | |
+| `hora_programada` | Hora exacta (crucial para alimentación de animales) | TIME | |
+| `estado_ejecucion` | Pendiente, En Progreso, Completada, Vencida | VARCHAR(50) | |
+| `observaciones` | Instrucciones específicas para el trabajador ese día | TEXT | |
 
 ## 3.3. Enfoque Relacional
 
