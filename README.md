@@ -1,30 +1,32 @@
-<center>UNIVERSIDAD NACIONAL DE INGENIERÍA</center>
-<br>
-<center>FACULTAD DE INGENIERÍA INDUSTRIAL Y DE SISTEMAS</center>
-<br>
 <div align="center">
-  <img src="image.png" alt="alt text" width="50%">
+
+UNIVERSIDAD NACIONAL DE INGENIERÍA
+<br><br>
+FACULTAD DE INGENIERÍA INDUSTRIAL Y DE SISTEMAS
+<br><br>
+<img src="image.png" alt="Logo UNI" width="50%">
+<br><br>
+SW609U Sistemas de Gestión de Base de Datos
+<br><br>
+Entregable Capítulo 1
+<br><br>
+DOCENTE: Berrocal Navarro Richard Leonardo
+<br><br>
+Participantes del Grupo 1:
+<br><br>
+Chavarria Llamacponcca Renzo Moises
+<br><br>
+Chinchayhuara Pantoja Mauricio Miguel
+<br><br>
+Rojas Sanchez Jose Martin
+<br><br>
+Vera Palacios Alvaro Martin
+<br><br>
+29 de octubre de 2026
+<br><br>
+2026 - II
+
 </div>
-<br>
-<center>SW609U Sistemas de Gestión de Base de Datos</center>
-<br>
-<center>Entregable Capítulo 1</center>
-<br>
-<center>DOCENTE: Berrocal Navarro Richard Leonardo</center>
-<br>
-<center>Participantes del Grupo 1:</center>
-<br>
-<center> - Chavarria Llamacponcca Renzo Moises </center>
-<br>
-<center> - Chinchayhuara Pantoja Mauricio Miguel </center>
-<br>
-<center> - Rojas Sanchez Jose Martin </center>
-<br>
-<center> - Vera Palacios Alvaro Martin </center>
-<br>
-<center> 29 de octubre de 2026 </center>
-<br>
-<center> 2026 - II </center>
 
 ---
 
