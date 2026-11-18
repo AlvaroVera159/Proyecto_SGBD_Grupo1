@@ -740,9 +740,9 @@ El Sistema de Gestión de Bases de Datos Relacional (RDBMS) constituye la plataf
 
 El motor de base de datos asegura el cumplimiento riguroso de las propiedades ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad), garantizando la integridad de datos entre las 32 entidades del dominio identificadas. Administra de forma consistente las transacciones de inventario en `Kardex_Inventario` y `Aplicacion_Insumo`, la asignación de tareas operativas (`Registro_Labor`, `Planificacion_Actividad`), la trazabilidad zootécnica y genealógica en `Animal`, `Empadre` y `Parto`, el control sanitario (`Diagnostico`, `Tratamiento_Sanitario`), y las transacciones comerciales en `Venta` y `Detalle_Venta`. Asimismo, provee el aislamiento necesario para soportar una arquitectura multiempresa (multi-tenant) a través de la entidad `Empresa`.
 
-## 4.1.1. Evaluación y elección del sistema de gestión de base de datos relacional
+### 4.1.1. Evaluación y elección del sistema de gestión de base de datos relacional
 
-### A. Criterios de Selección
+#### A. Criterios de Selección
 Para la selección del motor de base de datos relacional entre las opciones autorizadas por la cátedra (SQL Server, MySQL y Oracle), se establecieron parámetros de evaluación acordes a los requisitos funcionales (RF) y no funcionales (RNF) de AgriTech:
 
 1. **Integridad Referencial y Restricciones Complejas (RNF-02, RF-04, RF-05):** Capacidad de soportar claves foráneas recursivas en la tabla `Animal` (`id_padre` e `id_madre`), permitiendo construir árboles genealógicos y validar mediante restricciones, funciones de usuario o triggers que no se programen cruces con consanguinidad en `Empadre`.
@@ -753,7 +753,7 @@ Para la selección del motor de base de datos relacional entre las opciones auto
 
 ---
 
-### B. Análisis Comparativo de Alternativas
+#### B. Análisis Comparativo de Alternativas
 
 | Criterio | Microsoft SQL Server | MySQL (Motor InnoDB) | Oracle Database |
 | :--- | :--- | :--- | :--- |
@@ -765,7 +765,7 @@ Para la selección del motor de base de datos relacional entre las opciones auto
 
 ---
 
-### C. Justificación y Elección del SGBD
+#### C. Justificación y Elección del SGBD
 Tras evaluar las alternativas frente a los requerimientos de la plataforma **AgriTech** y los lineamientos tecnológicos del curso, el equipo seleccionó **Microsoft SQL Server** como el Sistema de Gestión de Bases de Datos Relacional, sustentado en las siguientes razones técnicas:
 
 1. **Aislamiento Multi-tenant Nativo mediante Row-Level Security (RF-11):** SQL Server permite implementar políticas de seguridad a nivel de fila (RLS) usando funciones de predicado en T-SQL. Esto asegura que cada fundo asociado a la entidad `Empresa` visualice únicamente su información operativa, evitando fugas de datos entre clientes sin recargar la capa de aplicación.
@@ -775,7 +775,11 @@ Tras evaluar las alternativas frente a los requerimientos de la plataforma **Agr
 
 ---
 
-### D. Evidencia de Implementación del SGBD
+#### D. Evidencia de Implementación del SGBD
 A continuación, se presenta la evidencia de la instancia de base de datos relacional creada y conectada en **Microsoft SQL Server**:
 
 ![Instancia de Base de Datos en SQL Server](evidencia_sql_server.png)
+
+## 4.2. Diagramas de datos
+
+### 4.2.1. Diagrama entidad-relación físico
