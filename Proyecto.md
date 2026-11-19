@@ -841,3 +841,4 @@ En esta sección se resume la materialización física de la arquitectura relaci
 # Bibliografía
 
 - Adewusi, A. O., Chiekezie, N. R., & Eyo-Udo, N. L. (2023). Blockchain technology in agriculture: Enhancing supply chain transparency and traceability. Finance & Accounting Research Journal. https://doi.org/10.51594/FARJ.V5I12.1514
+- Coronel, C., & Morris, S. (2023). *Database Systems: Design, Implementation, & Management* (14.ª ed.). Cengage Learning.
