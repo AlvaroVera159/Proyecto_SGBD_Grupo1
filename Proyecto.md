@@ -26,15 +26,18 @@
 <br>
 <center> 2026 - II </center>
 
-# Student Outcome
+## Student Outcome
 
-|
-|**Estudiante**|**Student Outcome**|
-|---|---|
-|Renzo Moises Chavarria Llamacponcca||
-|Mauricio Miguel Chinchayhuara Pantoja|El estudiante podrá diseñar modelos de bases de datos para necesidades agropecuarias reales, integrando análisis de segmentos, propuesta de valor y entrevistas, y modelando relacionalmente los módulos de seguridad multiempresa, personal, agrícola e inventario, asegurando integridad, trazabilidad y aislamiento por empresa.|
-|Jose Martin Rojas Sanchez||
-|Alvaro Martin Vera Palacios|El estudiante será capaz de desarrollar propuestas tecnológicas, enfocadas en diseñar modelos de bases de datos centrados en las necesidades reales del productor agropecuario , priorizando la integridad y la trazabilidad de la información.|
+
+**ABET - EAC - Student Outcome 7**  
+
+En el siguiente cuadro se describen las acciones realizadas y los enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET EAC - Student Outcome 7:
+
+| Criterio específico | Acciones realizadas | Conclusiones |
+| :--- | :--- | :--- |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.** | **Renzo Moises Chavarria Llamacponcca**<br>- TP1: Diseño de la guía de entrevista en 5 bloques, ejecución/análisis de entrevista a Granja D'Alejos, especificación de requisitos funcionales (RF-01 a RF-11) y no funcionales (RNF-01 a RNF-07), y elaboración del Capítulo II en la presentación.<br><br>**Mauricio Miguel Chinchayhuara Pantoja**<br>- TP1: Análisis de segmentos, propuesta de valor, análisis de entrevistas y modelado relacional de los módulos de seguridad multiempresa, personal, agrícola e inventario.<br><br>**Jose Martin Rojas Sanchez**<br>- TP1: *(Completar acciones realizadas en TP1)*.<br><br>**Alvaro Martin Vera Palacios**<br>- TP1: Formulación de la propuesta tecnológica centrada en el productor agropecuario, coordinación del informe y estructuración del modelo de datos con enfoque en integridad y trazabilidad. | El desarrollo de AgriTech permitió al equipo aplicar fundamentos de ingeniería de software y modelado de bases de datos relacionales a una problemática agropecuaria real. Mediante entrevistas y análisis de requisitos se identificaron necesidades críticas como el control de consanguinidad, la trazabilidad de insumos y el aislamiento multiempresa, estructurando un esquema normalizado que garantiza la integridad de la información. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de tecnologías de ingeniería de software.** | **Renzo Moises Chavarria Llamacponcca**<br>- TP1: Aplicación de técnicas de levantamiento de requisitos para dominar reglas de negocio pecuarias y agrícolas, validando el flujo operativo antes del diseño lógico y trabajando con control de versiones en GitHub.<br><br>**Mauricio Miguel Chinchayhuara Pantoja**<br>- TP1: Investigación y aplicación de patrones de diseño relacional multiempresa (*multi-tenant*) y reglas de trazabilidad operativa.<br><br>**Jose Martin Rojas Sanchez**<br>- TP1: *(Completar acciones realizadas en TP1)*.<br><br>**Alvaro Martin Vera Palacios**<br>- TP1: Investigación sobre gestión agropecuaria empírica y aplicación de estándares de documentación técnica y diagramación entidad-relación. | El proyecto evidenció la importancia del aprendizaje continuo para comprender dominios de negocio especializados y traducirlos en soluciones tecnológicas escalables. El equipo fortaleció sus competencias en herramientas colaborativas de control de versiones, modelado lógico/físico y validación de restricciones de integridad referencial. |
+
 
 # Capítulo I: Introducción
 
