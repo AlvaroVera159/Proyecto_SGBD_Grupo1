@@ -26,7 +26,15 @@
 <br>
 <center> 2026 - II </center>
 
+# Student Outcome
 
+|
+|**Estudiante**|**Student Outcome**|
+|---|---|
+|Renzo Moises Chavarria Llamacponcca||
+|Mauricio Miguel Chinchayhuara Pantoja||
+|Jose Martin Rojas Sanchez||
+|Alvaro Martin Vera Palacios|El estudiante será capaz de desarrollar propuestas tecnológicas, enfocadas en diseñar modelos de bases de datos centrados en las necesidades reales del productor agropecuario , priorizando la integridad y la trazabilidad de la información.|
 
 # Capítulo I: Introducción
 
@@ -783,3 +791,7 @@ A continuación, se presenta la evidencia de la instancia de base de datos relac
 ## 4.2. Diagramas de datos
 
 ### 4.2.1. Diagrama entidad-relación físico
+
+# Bibliografía
+
+- Adewusi, A. O., Chiekezie, N. R., & Eyo-Udo, N. L. (2023). Blockchain technology in agriculture: Enhancing supply chain transparency and traceability. Finance & Accounting Research Journal. https://doi.org/10.51594/FARJ.V5I12.1514
