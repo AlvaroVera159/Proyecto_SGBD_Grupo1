@@ -795,6 +795,49 @@ A continuación, se presenta la evidencia de la instancia de base de datos relac
 
 ### 4.2.1. Diagrama entidad-relación físico
 
+En esta sección se resume la materialización física de la arquitectura relacional de **AgriTech** en **Microsoft SQL Server (T-SQL)** para las 32 entidades del dominio (el detalle completo columna por columna se encuentra en [`4.2_Diagramas_de_datos.md`](Capitulo_4_Implementacion_de_base_de_datos/4.2_Diagramas_de_datos.md)).
+
+#### A. Convenciones de Mapeo Físico (T-SQL)
+
+| Tipo Lógico | Tipo Físico (T-SQL) | Criterio de Implementación |
+| :--- | :--- | :--- |
+| `INT` (PK subrogada) | `INT IDENTITY(1,1)` | Generación autoincremental para claves primarias subrogadas. |
+| `BOOLEAN` | `BIT` | Valores `0`/`1` con `DEFAULT 1` para borrado lógico y estados activos. |
+| `TIMESTAMP` | `DATETIME2(0)` | Precisión al segundo con `DEFAULT SYSDATETIME()` (evita el tipo obsoleto `ROWVERSION`). |
+| `TEXT` | `VARCHAR(MAX)` | Reemplaza al tipo obsoleto `TEXT` permitiendo funciones de cadena estándar. |
+| `DECIMAL(p,s)` | `DECIMAL(p,s)` | Precisión fija para montos, hectáreas, dosis y pesajes. |
+| Integridad Referencial | `ON DELETE NO ACTION` | Evita rutas de cascada múltiples (*Error 1785* en SQL Server) hacia `Empresa`. |
+
+#### B. Resumen del Modelo Físico por Módulos (32 Tablas)
+
+| Módulo | Tablas Implementadas (32) | Claves y Restricciones Clave (`PK`, `FK`, `NOT NULL`, `CHECK`, `DEFAULT`) |
+| :--- | :--- | :--- |
+| **1. Seguridad y Multiempresa** | `Empresa`, `Rol`, `Trabajador`, `Usuario`, `Usuario_Rol` | `PK` compuesta en `Usuario_Rol`; `CHECK` de RUC (11 dígitos), DNI (8 dígitos) y formato de `email`; `fecha_ingreso >= fecha_nacimiento`; valores `DEFAULT` de auditoría y estado activo. |
+| **2. Gestión Laboral y Planificación** | `Tipo_Labor`, `Registro_Labor`, `Planificacion_Actividad` | `horas_invertidas > 0 AND <= 24`; dominio de estados en planificación (`Pendiente`, `En Progreso`, `Completada`, `Vencida`). |
+| **3. Gestión Agrícola** | `Parcela`, `Especie_Cultivo`, `Ciclo_Siembra`, `Cosecha` | Áreas, días promedio y cosechas estrictamente positivos (`> 0`); validación cronológica `fecha_fin_esperada >= fecha_inicio`; estados controlados por `CHECK`. |
+| **4. Ganadería, Genealogía y Reproducción** | `Especie_Animal`, `Raza`, `Corral`, `Animal`, `Lote_Animal`, `Control_Peso`, `Empadre`, `Parto` | `FK` recursivas `id_padre` e `id_madre` en `Animal` con `CHECK` anti-autoreferencia; validación XOR en `Control_Peso` (animal o lote); `crias_vivas + crias_muertas > 0` en `Parto`. |
+| **5. Sanidad y Alimentación** | `Enfermedad`, `Diagnostico`, `Tratamiento_Sanitario`, `Racion_Dieta`, `Consumo_Alimentacion` | Dominios de gravedad y resultados (`Positivo`, `Negativo`, `Sospechoso`); regla XOR en `Tratamiento_Sanitario` (animal o lote) y XOR triple en `Consumo_Alimentacion` (animal, lote o corral). |
+| **6. Inventario e Insumos** | `Categoria_Insumo`, `Insumo`, `Kardex_Inventario`, `Aplicacion_Insumo` | Tipos de movimiento (`ENTRADA`, `SALIDA`, `MERMA`); `stock_minimo >= 0`; regla XOR en `Aplicacion_Insumo` (`Ciclo_Siembra` o `Tratamiento_Sanitario`). |
+| **7. Comercialización y Ventas** | `Cliente`, `Venta`, `Detalle_Venta` | Documentos (`DNI`, `RUC`, `Pasaporte`) y comprobantes (`Boleta`, `Factura`, `Recibo Interno`); regla XOR triple en `Detalle_Venta` (animal, lote o cosecha). |
+
+#### C. Estrategia de Restricciones `UNIQUE` e Índices Únicos Filtrados
+
+| Categoría | Restricciones / Índices Aplicados | Propósito en Arquitectura Multi-tenant |
+| :--- | :--- | :--- |
+| **Globales** | `UQ_Empresa_Ruc`, `UQ_Empresa_Nombre`, `UQ_Usuario_Email`, `UQ_Rol_NombreRol`, `UQ_EspecieCultivo_Nombre`, `UQ_EspecieAnimal_Nombre`, `UQ_CategoriaInsumo_Nombre` | Garantizan unicidad absoluta en credenciales de acceso, empresas SaaS y catálogos maestros del sistema. |
+| **Catálogo Jerárquico** | `UQ_Raza_Especie_Nombre`, `UQ_Enfermedad_Especie_Nombre`, `UQ_RacionDieta_Especie_Nombre` | Evitan duplicados dentro de una misma especie animal. |
+| **Compuestas *Multi-tenant*** | `UQ_Usuario_Empresa_NombreUsuario`, `UQ_Trabajador_Empresa_Dni`, `UQ_TipoLabor_Empresa_Nombre`, `UQ_Parcela_Empresa_Nombre`, `UQ_Corral_Empresa_Nombre`, `UQ_Animal_Empresa_CodigoArete`, `UQ_LoteAnimal_Empresa_Codigo`, `UQ_Insumo_Empresa_Nombre`, `UQ_Cliente_Empresa_Documento`, `UQ_Venta_Empresa_Comprobante` | Aíslan la unicidad por `id_empresa`, permitiendo que distintos fundos utilicen nombres equivalentes (ej. `"Hectárea 1"`) o compartan clientes/veterinarios sin colisiones. |
+| **Relación 1:1 y Operativas** | `UQ_Parto_Empadre`, `UQ_Empadre_Padre_Madre_Fecha`, `UQ_CicloSiembra_Parcela_Cultivo_Inicio`, `UQ_Planificacion_Trabajador_Horario` | Materializan la relación `1:1` entre `Empadre` y `Parto`, y previenen cruces de horario o registros duplicados en el mismo día. |
+| **Índices Únicos Filtrados (T-SQL)** | `UX_ControlPeso_Animal_Fecha`, `UX_ControlPeso_Lote_Fecha`, `UX_DetalleVenta_Venta_Animal`, `UX_DetalleVenta_Venta_Lote`, `UX_DetalleVenta_Venta_Cosecha` | Índices con cláusula `WHERE col IS NOT NULL` que impiden pesajes duplicados en el día o ítems repetidos en una venta sin bloquear valores `NULL` de las columnas XOR. |
+
+#### D. Vista del Diagrama Entidad-Relación Físico
+
+![Diagrama Entidad-Relación Físico - AgriTechDB](Capitulo_4_Implementacion_de_base_de_datos/AgriTechDB_ERD_Fisico.svg)
+
+#### E. Evidencia de Implementación del Diagrama Físico
+
+![Evidencia del Diagrama Físico en SQL Server](Capitulo_4_Implementacion_de_base_de_datos/evidencia_diagrama_fisico.png)
+
 # Bibliografía
 
 - Adewusi, A. O., Chiekezie, N. R., & Eyo-Udo, N. L. (2023). Blockchain technology in agriculture: Enhancing supply chain transparency and traceability. Finance & Accounting Research Journal. https://doi.org/10.51594/FARJ.V5I12.1514
