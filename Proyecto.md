@@ -32,7 +32,7 @@
 |**Estudiante**|**Student Outcome**|
 |---|---|
 |Renzo Moises Chavarria Llamacponcca||
-|Mauricio Miguel Chinchayhuara Pantoja||
+|Mauricio Miguel Chinchayhuara Pantoja|El estudiante podrá diseñar modelos de bases de datos para necesidades agropecuarias reales, integrando análisis de segmentos, propuesta de valor y entrevistas, y modelando relacionalmente los módulos de seguridad multiempresa, personal, agrícola e inventario, asegurando integridad, trazabilidad y aislamiento por empresa.|
 |Jose Martin Rojas Sanchez||
 |Alvaro Martin Vera Palacios|El estudiante será capaz de desarrollar propuestas tecnológicas, enfocadas en diseñar modelos de bases de datos centrados en las necesidades reales del productor agropecuario , priorizando la integridad y la trazabilidad de la información.|
 
